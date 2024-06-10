@@ -1,7 +1,8 @@
 package controller.carros;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import exception.CarrosException;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -13,19 +14,14 @@ import service.carros.CarroService;
 
 @Path("/carro")
 public class CarroController {
-	//Comentário Final resolvido
 	private CarroService service = new CarroService();
 	
 	@POST
 	@Path("/filtro")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Carro> consultarComFiltros(CarroSeletor seletor) {
-		//Alterado
-		return service.consultarComFiltros(seletor);
+	public List<Carro> consultarComFiltros(CarroSeletor seletor) throws CarrosException {
+		return service.consultarComSeletor(seletor);
 	}
 	
-	public ArrayList<Carro> consultarComFiltros2(CarroSeletor seletor) {
-		return service.consultarComFiltros(seletor);
-	}
 }
