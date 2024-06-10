@@ -2,6 +2,7 @@ package controller.vemnox1;
 
 import java.util.List;
 
+import exception.VemNoX1Exception;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -37,7 +38,7 @@ public class JogadorController {
 	
 	@DELETE
 	@Path("/{id}")
-	public boolean excluir(@PathParam("id") int id){
+	public boolean excluir(@PathParam("id") int id) throws VemNoX1Exception{
 		 return service.excluir(id);
 	}
 	

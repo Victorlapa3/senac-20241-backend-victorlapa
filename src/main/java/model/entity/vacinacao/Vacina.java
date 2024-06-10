@@ -14,14 +14,14 @@ public class Vacina {
 	private Pessoa pesquisadorResponsavel;
 	private LocalDate dataInicioPesquisa;
 	private int estagio;
-	private double media;
+//	private double media;
 	
 	public Vacina() {
 		
 	}
 
 	public Vacina(int id, String nome, Pais paisOrigem, Pessoa pesquisadorResponsavel, LocalDate dataInicioPesquisa,
-			int estagio, double media) {
+			int estagio) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -29,7 +29,7 @@ public class Vacina {
 		this.pesquisadorResponsavel = pesquisadorResponsavel;
 		this.dataInicioPesquisa = dataInicioPesquisa;
 		this.estagio = estagio;
-		this.media = media;
+//		this.media = media;
 	}
 
 	public int getId() {
@@ -80,11 +80,11 @@ public class Vacina {
 		this.estagio = estagio;
 	}
 
-	public double getMedia() {
-		return media;
-	}
-
-	public void setMedia(double media) {
-		this.media = media;
-	}
+//	public double getMedia() {
+//		return media;
+//	}
+//
+//	public void setMedia(double media) {
+//		this.media = media;
+//	}
 }

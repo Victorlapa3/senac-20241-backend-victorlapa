@@ -173,4 +173,28 @@ public class PartidaRepository implements BaseRepository<Partida> {
 		}
 		return partidas;
 	}
+	public ArrayList<Partida> consultarPorPessoa(int idPessoa) {
+		ArrayList<Partida> partidas = new ArrayList<>();
+		Connection conn = Banco.getConnection();
+		Statement stmt = Banco.getStatement(conn);
+		
+		ResultSet resultado = null;
+		String query = " SELECT * FROM partida WHERE " + idPessoa;
+		
+		try{
+			resultado = stmt.executeQuery(query);
+			while(resultado.next()){
+				Partida partida = converterDoResultSet(resultado);
+				partidas.add(partida);
+			}
+		} catch (SQLException erro){
+			System.out.println("Erro ao consultar todas as partidas");
+			System.out.println("Erro: " + erro.getMessage());
+		} finally {
+			Banco.closeResultSet(resultado);
+			Banco.closeStatement(stmt);
+			Banco.closeConnection(conn);
+		}
+		return partidas;
+	}
 }
